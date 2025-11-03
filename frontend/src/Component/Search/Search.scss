@@ -1,0 +1,129 @@
+$bg: #0f1724;
+$card: #0b1220;
+$accent: #06b6d4;
+$text: #e6eef3;
+$muted: #98a2b3;
+$radius: 10px;
+
+.main {
+  padding: 40px 16px;
+  background: linear-gradient(180deg, rgba(6,6,9,0.6), rgba(0,0,0,0));
+  color: $text;
+  min-height: 300px;
+}
+
+
+/* Меню OSINT */
+.menu__osint {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.search__menu-btn {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.06);
+  color: $text;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all .15s ease;
+}
+
+.search__menu-btn:hover {
+  background: rgba(255,255,255,0.03);
+  transform: translateY(-2px);
+}
+
+
+.search__still {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.02);
+  border: 1px dashed rgba(255,255,255,0.04);
+  padding: 6px 10px;
+  border-radius: 8px;
+  color: $muted;
+  cursor: pointer;
+}
+.search__still p {
+  margin: 0;
+  font-size: 13px;
+}
+.search__still span {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: $muted;
+  border-radius: 50%;
+}
+
+.form__search {
+  background: linear-gradient(180deg, $card 0%, rgba(11,17,32,0.85) 100%);
+  padding: 18px;
+  border-radius: $radius;
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+.form__search label {
+  display: block;
+  color: $muted;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.form__row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.form__row input {
+  flex: 1;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.04);
+  background: transparent;
+  color: $text;
+  outline: none;
+  transition: box-shadow .12s ease, border-color .12s ease;
+}
+
+.form__row input::placeholder {
+  color: rgba(230,238,243,0.45);
+}
+
+.form__row input:focus {
+  border-color: rgba($accent, .85);
+  box-shadow: 0 4px 18px rgba(6,182,212,0.06);
+}
+
+.form__btn {
+  background: $accent;
+  color: #022026;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .08s ease;
+}
+
+.form__btn:hover {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 640px) {
+  .form__row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .search__menu-btn {
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+}

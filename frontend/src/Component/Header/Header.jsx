@@ -1,26 +1,55 @@
-import React from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
+import "./Header.scss";
 
-const Header = () => {
-    return (
-        <header className="App-header">
-        <div className="container">
-          <div className="nav">
-            <div className="a">Об инструменте</div>
-            <div className="a">Вопросы</div>
-            <div className="a">Цель</div>
-            <div className="a">Исходники</div>
-          </div>
-          <button className="btn__language">
-            <span className='Russia'>Русский</span>
-            <span className="s-s">/</span>
-            <span className='English'>Language</span>
-          </button>
-          <button className="btn__exit">
-            
-          </button>
+const Header = ({
+  activeHeader,
+  setActiveHeader,
+  toggleLanguage,
+  language,
+}) => {
+  return (
+    <header className={activeHeader ? "App-header" : "App-header active"}>
+      <div className="container">
+        <div className="nav">
+          <Link to="/about-tools" className="a">
+            {language === "ru" ? "Об инструменте" : "About Tools"}
+          </Link>
+          <Link to="/questions" className="a">
+            {language === "ru" ? "Вопросы" : "Questions"}
+          </Link>
+          <Link to="/task" className="a">
+            {language === "ru" ? "Цель" : "Task"}
+          </Link>
+          <Link to="/sources" className="a">
+            {language === "ru" ? "Исходники" : "Sources"}
+          </Link>
         </div>
-      </header>
-    );
+        <div className="nav_language-exit">
+          <button className="btn__language" onClick={toggleLanguage}>
+            {language === "ru" ? "English" : "Русский"}
+          </button>
+          <Link to="/" className="btn__exit">
+            {language === "ru" ? "Обратно" : "Back"}
+          </Link>
+        </div>
+      </div>
+      <div className="container__btn">
+        <button
+          className="btn__header-active"
+          onClick={() => setActiveHeader(!activeHeader)}
+        >
+          {activeHeader
+            ? language === "ru"
+              ? "Закрыть"
+              : "Close"
+            : language === "ru"
+            ? "Открыть"
+            : "Open"}
+        </button>
+      </div>
+    </header>
+  );
 };
 
 export default Header;
