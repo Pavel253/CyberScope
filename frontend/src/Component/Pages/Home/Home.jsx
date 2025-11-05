@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import './Search.scss';
+import './Home.scss';
+import Tools from './Tools/Tools';
 
 const Search = () => {
     const [query, setQuery] = useState('');
@@ -23,17 +24,10 @@ const Search = () => {
         <main className='main'>
             <div className="container">
                 <div className="menu__osint">
-                    <button type="button" className="search__menu-btn">Номера</button>
-                    <button type="button" className="search__menu-btn">Почты</button>
-                    <button type="button" className="search__menu-btn">Никнеймы</button>
-                    <button type="button" className="search__menu-btn">Сайт</button>
-                    <button className='search__still' type="button" aria-label="Ещё">
-                        <p>Еще</p>
-                        <span />
-                    </button>
+                    <Tools />
                 </div>
 
-                <form className="form__search" onSubmit={handleSubmit}>
+                <form className="form__search" >
                     <label htmlFor="search-input">Поиск</label>
                     <div className="form__row">
                         <input
@@ -41,7 +35,7 @@ const Search = () => {
                             type="text"
                             value={query}
                             onChange={(e) => setQuery(e.target.value)}
-                            placeholder="Введите номер, почту или ник"
+                            placeholder="Адрес сайта"
                             aria-label="Поисковый запрос"
                         />
                         <button className='form__btn' type="submit" aria-label="Найти">

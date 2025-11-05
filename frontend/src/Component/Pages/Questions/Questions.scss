@@ -15,7 +15,7 @@
     display: flex;
     justify-content: space-between;
     align-items: start;
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 20px;
     .main__title-question {
       font-size: 28px;
@@ -24,16 +24,16 @@
       text-align: center;
     }
     .container__question {
-      display: flex;
-      flex-wrap: wrap;
       gap: 24px;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      justify-items: center;
       .questions__item {
         background: rgba(11, 18, 32, 0.6);
         border-radius: 8px;
         padding: 16px;
-        width: 46%;
-        height: auto;
+        width: 560px;
+        height: 90px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         transition: all 0.5s ease;
         &:hover {
@@ -72,7 +72,9 @@
         }
       }
       .questions__item.active {
-        height: auto;
+        height: 170px;
+        transition: all 0.5s ease;
+        width: 560px;
         .btn__vector {
           transform: rotate(0deg);
         }

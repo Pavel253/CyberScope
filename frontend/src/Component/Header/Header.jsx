@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./Header.scss";
 
 const Header = ({
@@ -8,30 +8,32 @@ const Header = ({
   toggleLanguage,
   language,
 }) => {
+  const navigate = useNavigate();
+
   return (
     <header className={activeHeader ? "App-header" : "App-header active"}>
       <div className="container">
         <div className="nav">
-          <Link to="/about-tools" className="a">
+          <NavLink to="/about-tools" className="a" activeClassName="active">
             {language === "ru" ? "Об инструменте" : "About Tools"}
-          </Link>
-          <Link to="/questions" className="a">
+          </NavLink>
+          <NavLink to="/questions" className="a" activeClassName="active">
             {language === "ru" ? "Вопросы" : "Questions"}
-          </Link>
-          <Link to="/task" className="a">
+          </NavLink>
+          <NavLink to="/task" className="a" activeClassName="active">
             {language === "ru" ? "Цель" : "Task"}
-          </Link>
-          <Link to="/sources" className="a">
+          </NavLink>
+          <NavLink to="/sources" className="a" activeClassName="active">
             {language === "ru" ? "Исходники" : "Sources"}
-          </Link>
+          </NavLink>
         </div>
         <div className="nav_language-exit">
           <button className="btn__language" onClick={toggleLanguage}>
             {language === "ru" ? "English" : "Русский"}
           </button>
-          <Link to="/" className="btn__exit">
+          <button className="btn__exit" onClick={() => navigate(-1)}>
             {language === "ru" ? "Обратно" : "Back"}
-          </Link>
+          </button>
         </div>
       </div>
       <div className="container__btn">
