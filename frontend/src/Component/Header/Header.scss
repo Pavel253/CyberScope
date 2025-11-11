@@ -29,6 +29,11 @@ $accent: #06b6d4;
       color: $accent;
     }
 
+    .nav .a.active {
+      color: $accent; 
+      font-weight: bold;
+    }
+
     .btn__language {
       background: transparent;
       border: 1px solid $accent;
@@ -114,6 +119,11 @@ $accent: #06b6d4;
 
     .nav .a:hover {
       color: $accent;
+    }
+
+    .nav .a.active {
+      color: $accent; 
+      font-weight: bold; 
     }
 
     .btn__language {
